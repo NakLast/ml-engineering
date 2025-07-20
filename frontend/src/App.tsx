@@ -14,11 +14,11 @@ export default function App() {
     }
     setLoading(true);
     setStory("");
-
     try {
       const response = await axios.post("http://localhost:3001/api/genstory", { 
         prompt });
-      setStory(response.data.story);
+      console.log(response.data);
+      setStory(response.data);
     } catch (error) {
       alert("เกิดข้อผิดพลาดในการเรียก API");
       console.error(error);

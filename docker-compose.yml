@@ -54,8 +54,6 @@ services:
     container_name: frontend
     ports:
       - "5173:5173"
-    volumes:
-      - ./frontend:/app
     working_dir: /app
     command: ["npm", "run", "dev", "--", "--host"]
     depends_on:
