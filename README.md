@@ -11,13 +11,14 @@
 
 ## Project Overview
 
-This project leverages the AI model `google/gemma-2-2b-it` from Hugging Face to generate Novel Story.
+This project leverages the AI model `google/gemma-2-2b-it` from Hugging Face to generate novel-style stories.
+
 ### Quiz Description
-our team 105Lab, answers AI for Thai quiz by
 
-(1) using ExpresssJS as API1 for accepting user novel generation request input parameters
+Team **105Lab** answers the AI for Thai quiz challenge by:
 
-(2) using SGLang as API2 to receive LLM request from API1,  we use docker image of SGLang directly ,  see the script in docker-compose.yml
+(1) using **ExpresssJS** as **API1** to accept user request for story generation.
+(2) using **SGLang** as **API2** to handle LLM inference, deployed via Docker. See the setup in `docker-compose.yml`.
 
 ---
 
@@ -25,13 +26,12 @@ our team 105Lab, answers AI for Thai quiz by
 
 ### 1. Request Access to the Model
 
-Visit the model page:  
-[https://huggingface.co/google/gemma-2-2b-it](https://huggingface.co/google/gemma-2-2b-it)  
+Visit: [https://huggingface.co/google/gemma-2-2b-it](https://huggingface.co/google/gemma-2-2b-it)  
 Click **Request Access** to gain permission to use this model.
 
 ### 2. Authenticate Hugging Face CLI
 
-Generate an Access Token from your Hugging Face account. Then run the following command in your terminal:
+Generate an access token from your Hugging Face account, then log in:
 
 ```bash
 huggingface-cli login
