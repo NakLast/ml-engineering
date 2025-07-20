@@ -4,6 +4,6 @@ import { getGenerateStory } from "../controllers/genController";
 
 const router = Router();
 
-router.get("/",getGenerateStory);
+router.post("/",getGenerateStory);
 
 export default router;
