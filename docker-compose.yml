@@ -9,8 +9,6 @@ services:
       - "30000:30000"
     volumes:
       - ~/.cache/huggingface:/root/.cache/huggingface
-    environment:
-      - HUGGINGFACE_HUB_TOKEN=${huggingfacetoken}
     command: >
       python3 -m sglang.launch_server
         --model google/gemma-2-2b-it
