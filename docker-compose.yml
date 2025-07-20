@@ -1,23 +1,32 @@
 version: "3.9"
 
 services:
-  vllm:
-    image: vllm/vllm:latest # Replace with actual image or custom-built one
-    container_name: vllm
+  sglang:
+    image: lmsysorg/sglang:latest
+    container_name: sglang-gemma4b-main
+    shm_size: 32g
     ports:
-      - "8000:8000"
+      - "30000:30000"
     volumes:
-      - ./vllm:/app
-    working_dir: /app
-    command:
-      [
-        "python3",
-        "-m",
-        "vllm.entrypoints.openai.api_server",
-        "--host",
-        "0.0.0.0",
-      ]
-    restart: unless-stopped
+      - ~/.cache/huggingface:/root/.cache/huggingface
+    environment:
+      - HUGGINGFACE_HUB_TOKEN=${huggingfacetoken}
+    command: >
+      python3 -m sglang.launch_server
+        --model google/gemma-2-2b-it
+        --tp 1
+        --trust-remote-code
+        --host 0.0.0.0
+        --port 30000
+        --mem-fraction-static 0.9
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]
+    ipc: host
+    networks:
+      - appnet
 
   backend:
     build:
@@ -26,15 +35,15 @@ services:
     container_name: backend
     ports:
       - "3001:3001"
-    volumes:
-      - ./backend:/app
     working_dir: /app
-    command: ["npm", "run", "dev"]
+    command: ["pnpm", "run", "start"]
     depends_on:
-      - vllm
+      - sglang
     environment:
-      - VLLM_API_URL=http://vllm:8000
+      - SGLANG_API_URL=http://sglang:30000/v1/chat/completions
     restart: unless-stopped
+    networks:
+      - appnet
 
   frontend:
     build:
@@ -42,11 +51,15 @@ services:
       dockerfile: Dockerfile
     container_name: frontend
     ports:
-      - "5173:5173"
-    volumes:
-      - ./frontend:/app
+      - "4173:4173"
     working_dir: /app
-    command: ["npm", "run", "dev", "--", "--host"]
+    command: ["serve", "-s", "dist", "-l", "4173"]
     depends_on:
       - backend
     restart: unless-stopped
+    networks:
+      - appnet
+
+networks:
+  appnet:
+    driver: bridge
