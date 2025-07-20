@@ -95,3 +95,11 @@ Start serve VLLM:
 ```bash
 vllm serve <your-model-path>
 ```
+
+## Contributing
+
+1. Extrabranch from `develop` branch
+2. Success develop from your branch, submit PR to `develop` branch
+3. Wait for review and merge
+4. Test merge code on `develop` branch
+5. Submit PR to `main` branch
