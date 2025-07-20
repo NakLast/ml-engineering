@@ -45,31 +45,34 @@ huggingface-cli login
 git clone https://github.com/NakLast/ml-engineering.git
 cd ml-engineering
 ```
-then start your service by
+
+### 4. Start the Service
+
 ```bash
 docker compose up -d
 ```
-### 4. Visit http://localhost:4173 to test our aplication.
+
+Then open your browser and visit:
+http://localhost:4173
 
 ---
 
 
 ## Extra
 If u want to test our API
+
 ## API Endpoints
 
 Below are the available API endpoints in this project.
+
 ### API Generate Novel Story
 **Description**:  
- This API will generate a story based on the characters or scenes you provide.
+ This API generates a story based on characters or scenes you provide.
 
 ---
 
-### 1. Postman Method
-### `POST to  http://localhost:3001/api/genstory`
-
-
-
+📌 Endpoint
+POST `http://localhost:3001/api/genstory`
 **Request Body** (`application/json`):
 
 ```json
@@ -78,15 +81,19 @@ Below are the available API endpoints in this project.
 }
 ```
 
-### 2. Curl Method
+🧪 Test the API
+### 1. Using Postman
+Send a `POST` request to `http://localhost:3001/api/genstory` with the JSON body above.
+
+### 2. Using cURL
 
 ```bash
 curl -X POST http://localhost:3001/api/genstory -H "Content-Type: application/json" -d "{\"prompt\":\"Defined Name of Character or anything u want to have it in Novel Story\"}"
 
 ```
 
-The result of both methods will be returned in this format.
-```result
+📄 Example Response
+```text
 
 **บทที่ 1: รู้จักกันในเกม**
 
