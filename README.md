@@ -1,108 +1,46 @@
-# ml-engineering
+# ml-engineering | AI For Thai Quizz
+
+## Requirements
+
+- Docker
+- GPU with VRAM > 6GB (required to run sglang)
+- Hugging Face CLI
 
 
-Requirement : Docker
+---
 
-*** Descriptions for this project ***
+## Project Overview
 
-## Backend
+This project leverages the AI model `google/gemma-2-2b-it` from Hugging Face to generate Novel Story.
 
-This backend is used ["express"](https://expressjs.com/en/starter/installing.html), node version 22.14.0 and ["pnpm"](https://pnpm.io/installation)
+---
 
-### Getting started
+## Getting Started
 
-Install dependencies:
+### 1. Request Access to the Model
 
-```bash
-pnpm install
-```
+Visit the model page:  
+[https://huggingface.co/google/gemma-2-2b-it](https://huggingface.co/google/gemma-2-2b-it)  
+Click **Request Access** to gain permission to use this model.
 
-Start development server:
+### 2. Authenticate Hugging Face CLI
 
-```bash
-pnpm run dev
-```
-
-## Frontend
-
-This frontend is used ["vite"](https://vite.dev/guide/), node version 22.14.0 and ["pnpm"](https://pnpm.io/installation)
-
-### Getting started
-
-Install dependencies:
+Generate an Access Token from your Hugging Face account. Then run the following command in your terminal:
 
 ```bash
-pnpm install
+huggingface-cli login
 ```
+ then fill token that u got before this Step.
 
-Start development server:
+
+### 3. Clone the Repository
 
 ```bash
-pnpm run dev
+git clone https://github.com/NakLast/ml-engineering.git
+cd ml-engineering
 ```
-
-## VLLM
-
-This vllm is used "uv"
-
-### Installation
-
-uv provides a standalone installer to download and install uv:
-
+then start your service by
 ```bash
-curl -LsSf https://astral.sh/uv/install.sh | sh
+docker compose up -d
 ```
-
-When uv is installed via the standalone installer, it can update itself on-demand:
-
-```bash
-uv self update
-```
-
-To enable shell autocompletion for uv commands, run one of the following:
-
-```bash
-echo 'eval "$(uv generate-shell-completion zsh)"' >> ~/.zshrc
-```
-
-### Set up using python
-
-#### Create a new Python environment
-
-```bash
-uv venv --python 3.12 --seed
-```
-
-### Getting started
-
-Active virtual environment:
-
-```bash
-source .venv/bin/activate
-```
-
-Install vllm:
-
-```bash
-uv pip install vllm
-```
-
-Run test VLLM:
-
-```bash
-python <your-file-name>.py
-```
-
-Start serve VLLM:
-
-```bash
-vllm serve <your-model-path>
-```
-
-## Contributing
-
-1. Extrabranch from `develop` branch
-2. Success develop from your branch, submit PR to `develop` branch
-3. Wait for review and merge
-4. Test merge code on `develop` branch
-5. Submit PR to `main` branch
+### 4. Visit http://localhost:4173 to test our aplication.
