@@ -62,18 +62,11 @@ http://localhost:4173
 ### Generate Novel Story
 This API generates a story based on characters or scenes you provide.
 
-## API Endpoints
-
-Below are the available API endpoints in this project.
-
-### API Generate Novel Story
-**Description**:  
- This API generates a story based on characters or scenes you provide.
-
 ---
 
-📌 Endpoint
-POST `http://localhost:3001/api/genstory`
+### 📌 Endpoint
+**POST** `http://localhost:3001/api/genstory`
+
 **Request Body** (`application/json`):
 
 ```json
@@ -82,18 +75,20 @@ POST `http://localhost:3001/api/genstory`
 }
 ```
 
-🧪 Test the API
-### 1. Using Postman
+---
+
+### 🧪 Test the API
+#### 1. Using Postman
 Send a `POST` request to `http://localhost:3001/api/genstory` with the JSON body above.
 
-### 2. Using cURL
+#### 2. Using cURL
 
 ```bash
 curl -X POST http://localhost:3001/api/genstory -H "Content-Type: application/json" -d "{\"prompt\":\"Defined Name of Character or anything u want to have it in Novel Story\"}"
 
 ```
 
-📄 Example Response
+### 📄 Example Response
 ```text
 
 **บทที่ 1: รู้จักกันในเกม**
