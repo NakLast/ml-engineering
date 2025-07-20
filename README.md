@@ -61,7 +61,7 @@ If u want to test our API
 Below are the available API endpoints in this project.
 ### API Generate Novel Story
 **Description**:  
- API นี้จะแต่งนิยายให้โดยกรอกตัวละคร หรือฉากที่ต้องการ
+ This API will generate a story based on the characters or scenes you provide.
 
 ---
 
@@ -85,7 +85,7 @@ curl -X POST http://localhost:3001/api/genstory -H "Content-Type: application/js
 
 ```
 
-ผลลัพทธ์ของทั้ง 2 method จะตอบกลับมาแบบนี้
+The result of both methods will be returned in this format.
 ```result
 
 **บทที่ 1: รู้จักกันในเกม**
