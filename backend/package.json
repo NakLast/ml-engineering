@@ -4,10 +4,9 @@
   "description": "",
   "main": "src/server.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node src/server.ts",
-    "dev": "ts-node-dev src/server.ts",
-    "build": "tsup src/server.ts --format cjs,esm"
+  "start": "node dist/server.js", 
+  "dev": "ts-node-dev src/server.ts",
+  "build": "tsup src/server.ts --format cjs --out-dir dist"
   },
   "keywords": [],
   "author": "",
