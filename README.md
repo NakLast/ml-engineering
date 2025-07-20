@@ -58,8 +58,9 @@ http://localhost:4173
 ---
 
 
-## Extra
-If u want to test our API
+## API Usage
+### Generate Novel Story
+This API generates a story based on characters or scenes you provide.
 
 ## API Endpoints
 
