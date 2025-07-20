@@ -13,6 +13,7 @@ COPY . .
 RUN pnpm run build
 
 
+
 EXPOSE 3001
 
-CMD ["pnpm", "run"]
+CMD ["pnpm", "run", "start"]
